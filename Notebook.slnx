@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Logic/Logic.csproj" />
+  <Project Path="Notebook/Notebook.csproj" />
+  <Project Path="TestLogic/TestLogic.csproj" />
+</Solution>
