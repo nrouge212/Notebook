@@ -1,11 +1,14 @@
 ﻿using System.Collections.Generic;
 
-public class Unit : EducationalElement
+namespace Logic
 {
-    private List<Module> modules = new List<Module>();
-
-    public List<Module> ListModules()
+    public class Unit : EducationalElement
     {
-        return new List<Module>(modules);
+        private List<Module> modules = new List<Module>();
+
+        public List<Module> ListModules()
+        {
+            return new List<Module>(modules);
+        }
     }
 }

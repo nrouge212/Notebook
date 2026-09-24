@@ -1,3 +1,6 @@
-﻿public class Module : EducationalElement
+﻿namespace Logic
 {
+    public class Module : EducationalElement
+    {
+    }
 }

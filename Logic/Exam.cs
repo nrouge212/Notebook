@@ -1,63 +1,66 @@
 ﻿using System;
 
-public class Exam
+namespace Logic
 {
-    private string teacher;
-    private DateTime date;
-    private float coef;
-    private float note;
-    private bool isAbsent;
-
-    public string Teacher
+    public class Exam
     {
-        get => teacher;
-        set
+        private string teacher = ""; // Initialisation pour éviter l'avertissement CS8618
+        private DateTime date;
+        private float coef;
+        private float note;
+        private bool isAbsent;
+
+        public string Teacher
         {
-            if (string.IsNullOrWhiteSpace(value))
-                throw new Exception("Le prof ne peut pas etre vide");
-            teacher = value;
+            get => teacher;
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                    throw new Exception("Le prof ne peut pas etre vide");
+                teacher = value;
+            }
         }
-    }
 
-    public DateTime Date
-    {
-        get => date;
-        set => date = value;
-    }
-
-    public float Coef
-    {
-        get => coef;
-        set
+        public DateTime Date
         {
-            if (value <= 0)
-                throw new Exception("Le coef doit etre >0");
-            coef = value;
+            get => date;
+            set => date = value;
         }
-    }
 
-    public bool IsAbsent
-    {
-        get => isAbsent;
-        set
+        public float Coef
         {
-            isAbsent = value;
-            if (isAbsent) note = 0;
+            get => coef;
+            set
+            {
+                if (value <= 0)
+                    throw new Exception("Le coef doit etre >0");
+                coef = value;
+            }
         }
-    }
 
-    public float Note
-    {
-        get => note;
-        set
+        public bool IsAbsent
         {
-            if (value < 0 || value > 20)
-                throw new Exception("La note doit être comprise entre 0 et 20");
+            get => isAbsent;
+            set
+            {
+                isAbsent = value;
+                if (isAbsent) note = 0;
+            }
+        }
 
-            if (IsAbsent)
-                note = 0;
-            else
-                note = value;
+        public float Note
+        {
+            get => note;
+            set
+            {
+                if (value < 0 || value > 20)
+                    throw new Exception("La note doit être comprise entre 0 et 20");
+
+                if (IsAbsent)
+                    note = 0;
+                else
+                    note = value;
+            }
         }
     }
 }

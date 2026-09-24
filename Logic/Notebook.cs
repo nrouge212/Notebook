@@ -1,25 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
-public class NoteBook
+namespace Logic
 {
-    private List<Unit> units = new List<Unit>();
-
-    public List<Unit> ListUnits()
+    public class Notebook
     {
-        return new List<Unit>(units);
-    }
+        private List<Unit> units = new List<Unit>();
 
-    public void AddUnit(Unit unit)
-    {
-        if (units.Any(u => u.Name == unit.Name))
-            throw new Exception("Ce nom existe deja");
-        units.Add(unit);
-    }
+        public Unit[] ListUnits()
+        {
+            return units.ToArray();
+        }
 
-    public void RemoveUnit(Unit unit)
-    {
-        units.Remove(unit);
+        public void AddUnit(Unit unit)
+        {
+            units.Add(unit);
+        }
+
+        public void RemoveUnit(Unit unit)
+        {
+            units.Remove(unit);
+        }
     }
 }
