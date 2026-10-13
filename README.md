@@ -3,7 +3,7 @@
 Application de bureau WPF permettant de gérer des notes, des modules et des unités d'enseignement. 
 
 ## Contexte du Projet
-Ce projet est réalisé dans le cadre du module **R3.04 - Qualité de développement** du BUT Informatique à l'IUT de Nevers. Il a pour but de mettre en pratique les principes de conception logicielle (comme SOLID) et de structurer une application graphique en différentes couches indépendantes.
+Ce projet est réalisé dans le cadre du module **R3.04 - Qualité de développement** du BUT Informatique à l'IUT de Nevers. Il a pour but de mettre en pratique les principes de conception logicielle et de structurer une application graphique en différentes couches indépendantes.
 
 ## Architecture
 La solution est découpée en 3 projets distincts pour séparer les responsabilités :
