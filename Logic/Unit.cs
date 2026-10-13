@@ -10,5 +10,12 @@ namespace Logic
         {
             return new List<Module>(modules);
         }
+        public Unit()
+        {
+            Module test = new Module();
+            test.Name = "test";
+            test.Coef = 1;
+            modules.Add(test);
+        }
     }
 }

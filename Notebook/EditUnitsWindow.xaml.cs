@@ -75,5 +75,24 @@ namespace Notebook
                 MessageBox.Show(x.Message);
             }
         }
+
+        private void DrawModules()
+        {
+            if (units.SelectedItem is Unit unit)
+            {
+                var list = unit.ListModules();
+                modules.Items.Clear();
+
+                foreach (Module m in list)
+                {
+                    modules.Items.Add(m);
+                }
+            }
+        }
+
+        private void SelectUnit(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            DrawModules();
+        }
     }
 }
