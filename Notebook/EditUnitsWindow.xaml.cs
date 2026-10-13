@@ -94,5 +94,63 @@ namespace Notebook
         {
             DrawModules();
         }
+
+        // --- GESTION DES MODULES ---
+
+        // AJOUTER UN MODULE (Partie 6 du TP)
+        private void AddModule(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // Vérifier qu'une Unité est bien sélectionnée à gauche avant d'ajouter un module
+                if (units.SelectedItem is Unit unitSelectionnee)
+                {
+                    Module newModule = new Module();
+                    EditElementWindow fenetreModule = new EditElementWindow(newModule);
+
+                    if (fenetreModule.ShowDialog() == true)
+                    {
+                        unitSelectionnee.AddModule(newModule); // Ajoute au métier
+                        DrawModules(); // Met à jour l'affichage
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Veuillez sélectionner une Unité avant d'ajouter un module.");
+                }
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message);
+            }
+        }
+
+        private void EditModule(object sender, MouseButtonEventArgs e)
+        {
+            if (modules.SelectedItem is Module m)
+            {
+                EditElementWindow fenetreModule = new EditElementWindow(m);
+                if (fenetreModule.ShowDialog() == true)
+                {
+                    DrawModules(); 
+                }
+            }
+        }
+
+        private void RemoveModule(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (units.SelectedItem is Unit unitSelectionnee && modules.SelectedItem is Module moduleSelectionne)
+                {
+                    unitSelectionnee.RemoveModule(moduleSelectionne); // Supprime du métier
+                    DrawModules(); // Met à jour l'affichage
+                }
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message);
+            }
+        }
     }
 }

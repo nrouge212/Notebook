@@ -19,8 +19,12 @@
 
         <!-- Colonne de droite : Les Modules -->
         <Label Content="Modules :" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <ListBox x:Name="modules" Margin="20,40,20,80" Grid.Column="1"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="20,260,0,0" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
-        <Button Content="Remove" HorizontalAlignment="Right" Margin="0,260,20,0" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
+
+        <!-- On ajoute MouseDoubleClick="EditModule" -->
+        <ListBox x:Name="modules" Margin="20,40,20,80" MouseDoubleClick="EditModule" Grid.Column="1"/>
+
+        <!-- On ajoute les événements Click -->
+        <Button Content="Add" HorizontalAlignment="Left" Margin="20,260,0,0" VerticalAlignment="Top" Width="70" Click="AddModule" Grid.Column="1"/>
+        <Button Content="Remove" HorizontalAlignment="Right" Margin="0,260,20,0" VerticalAlignment="Top" Width="70" Click="RemoveModule" Grid.Column="1"/>
     </Grid>
 </Window>
