@@ -17,5 +17,10 @@ namespace Notebook
             EditUnitsWindow second = new EditUnitsWindow(notebook);
             second.Show(); // On l'affiche
         }
+        private void GoCreateExam(object sender, RoutedEventArgs e)
+        {
+            EditExamWindow fenetreExamen = new EditExamWindow(notebook);
+            fenetreExamen.ShowDialog();
+        }
     }
 }

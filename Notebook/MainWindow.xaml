@@ -3,9 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Carnet de notes" Height="450" Width="800">
     <Grid>
-        <Button Content="Saisir les matières" HorizontalAlignment="Left" Margin="100,50,0,0" VerticalAlignment="Top" Width="150" Height="40" Click="GoEditUnits"/>
-        <Button Content="Rentrer un examen" HorizontalAlignment="Right" Margin="0,50,100,0" VerticalAlignment="Top" Width="150" Height="40"/>
+        <Button Content="Saisir les matières" HorizontalAlignment="Left" Margin="82,87,0,0" VerticalAlignment="Top" Width="150" Height="40" Click="GoEditUnits" RenderTransformOrigin="0.366,0.47"/>
+        <Button Content="Rentrer un examen" HorizontalAlignment="Right" Margin="0,87,82,0" VerticalAlignment="Top" Width="150" Height="40" Click="GoCreateExam"/>
         <Button Content="Afficher les moyennes" HorizontalAlignment="Center" Margin="0,0,0,50" VerticalAlignment="Bottom" Width="150" Height="40"/>
-        <Image Source="livre.jpg" Margin="250,120,250,120" Stretch="Uniform"/>
+        <Image Source="livre.png" Margin="250,107,250,133" Stretch="Uniform"/>
     </Grid>
 </Window>

@@ -1,0 +1,22 @@
+﻿<Window x:Class="Notebook.EditExamWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Create an exam" Height="300" Width="450">
+    <Grid>
+        <ComboBox x:Name="moduleCombo" HorizontalAlignment="Left" Margin="40,30,0,0" VerticalAlignment="Top" Width="150"/>
+
+        <Label Content="Date :" HorizontalAlignment="Left" Margin="230,30,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="datePicker" HorizontalAlignment="Left" Margin="280,30,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <CheckBox x:Name="absentCheck" Content="Absent" HorizontalAlignment="Left" Margin="40,80,0,0" VerticalAlignment="Top" Click="CheckAbsent"/>
+
+        <Label Content="Teacher :" HorizontalAlignment="Left" Margin="220,75,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="teacherText" HorizontalAlignment="Left" Margin="280,80,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <Label Content="Score :" HorizontalAlignment="Left" Margin="230,120,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="scoreText" HorizontalAlignment="Left" Margin="280,125,0,0" VerticalAlignment="Top" Width="60"/>
+
+        <Button Content="Validate" HorizontalAlignment="Left" Margin="120,200,0,0" VerticalAlignment="Top" Width="80" Click="Validate"/>
+        <Button Content="Cancel" HorizontalAlignment="Right" Margin="0,200,120,0" VerticalAlignment="Top" Width="80" Click="Cancel"/>
+    </Grid>
+</Window>

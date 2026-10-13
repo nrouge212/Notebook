@@ -4,11 +4,23 @@ namespace Logic
 {
     public class Exam
     {
-        private string teacher = ""; // Initialisation pour éviter l'avertissement CS8618
-        private DateTime date;
-        private float coef;
-        private float note;
-        private bool isAbsent;
+        private string teacher = "";
+        private DateTime date = DateTime.Now;
+        private float coef = 1.0f;
+        private float note = 0.0f;
+        private bool isAbsent = true;
+        private Module module; // Lien vers le module de l'examen
+
+        public Module Module
+        {
+            get => module;
+            set
+            {
+                if (value == null)
+                    throw new Exception("Le module ne peut pas être nul");
+                module = value;
+            }
+        }
 
         public string Teacher
         {
@@ -44,7 +56,7 @@ namespace Logic
             set
             {
                 isAbsent = value;
-                if (isAbsent) note = 0;
+                if (isAbsent) note = 0; // Si absent la note = 0
             }
         }
 
