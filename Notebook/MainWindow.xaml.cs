@@ -22,5 +22,10 @@ namespace Notebook
             EditExamWindow fenetreExamen = new EditExamWindow(notebook);
             fenetreExamen.ShowDialog();
         }
+        private void GoListExams(object sender, RoutedEventArgs e)
+        {
+            ListExamsWindow fenetreListe = new ListExamsWindow(notebook);
+            fenetreListe.ShowDialog();
+        }
     }
 }

@@ -29,7 +29,8 @@
             <!-- Bouton 3 : Afficher les moyennes -->
             <Button Content="Afficher les moyennes" 
                 Width="200" 
-                Height="45"/>
+                Height="45"
+                Click="GoListExams"/>
 
         </StackPanel>
 
