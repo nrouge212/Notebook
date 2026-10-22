@@ -19,5 +19,21 @@ namespace Logic
         {
             modules.Remove(module);
         }
+
+        public AvgScore[] ComputeAverages(Exam[] exams)
+        {
+            List<AvgScore> scores = new List<AvgScore>();
+
+            foreach (Module m in modules)
+            {
+                AvgScore avg = m.ComputeAverage(exams);
+                // Si la moyenne du module existe, on l'ajoute
+                if (avg != null)
+                {
+                    scores.Add(avg);
+                }
+            }
+            return scores.ToArray();
+        }
     }
 }

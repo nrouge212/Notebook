@@ -87,5 +87,20 @@ namespace TestLogic
             Assert.NotNull(avg);
             Assert.Equal(12.5f, avg.Average);
         }
+
+        [Fact]
+        public void TestUnitComputeAverages()
+        {
+            Logic.Unit unit = new Logic.Unit { Name = "UE1", Coef = 1 };
+            Logic.Module mod1 = new Logic.Module { Name = "M1", Coef = 1 };
+            Logic.Module mod2 = new Logic.Module { Name = "M2", Coef = 1 };
+            unit.AddModule(mod1);
+            unit.AddModule(mod2);
+
+            Exam e1 = new Exam { Module = mod1, Note = 10, Coef = 1, IsAbsent = false };
+            AvgScore[] averages = unit.ComputeAverages(new Exam[] { e1 });
+
+            Assert.Single(averages);
+        }
     }
 }
