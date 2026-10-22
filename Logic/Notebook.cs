@@ -7,10 +7,8 @@ namespace Logic
     {
         private List<Unit> units = new List<Unit>();
 
-        //Liste des examens (tous les examens de toutes les unités)
         private List<Exam> exams = new List<Exam>();
 
-        // --- GESTION DES UNITES ---
         public Unit[] ListUnits()
         {
             return units.ToArray();
@@ -26,9 +24,6 @@ namespace Logic
             units.Remove(unit);
         }
 
-        // --- GESTION DES EXAMENS ET MODULES ---
-
-        // Fournit un tableau listant tous les modules (quelle que soit leur UE)
         public Module[] ListModules()
         {
             List<Module> allModules = new List<Module>();
@@ -39,7 +34,6 @@ namespace Logic
             return allModules.ToArray();
         }
 
-        // Ajoute un examen à la liste
         public void AddExam(Exam exam)
         {
             exams.Add(exam);
@@ -48,6 +42,58 @@ namespace Logic
         public Exam[] ListExams()
         {
             return exams.ToArray();
+        }
+
+        public AvgScore[] ComputeScores()
+        {
+            List<AvgScore> allScores = new List<AvgScore>();
+            Exam[] allExams = ListExams();
+
+            float generalSum = 0;
+            float generalCoef = 0;
+            bool hasAnyExam = false;
+
+            foreach (Unit u in units)
+            {
+                allScores.AddRange(u.ComputeAverages(allExams));
+
+                float unitSum = 0;
+                float unitCoef = 0;
+                bool unitHasExams = false;
+
+                List<Module> unitModules = new List<Module>(u.ListModules());
+
+                foreach (Exam e in allExams)
+                {
+                    if (unitModules.Contains(e.Module))
+                    {
+                        unitSum += e.Note * e.Coef;
+                        unitCoef += e.Coef;
+
+                        generalSum += e.Note * e.Coef;
+                        generalCoef += e.Coef;
+
+                        unitHasExams = true;
+                        hasAnyExam = true;
+                    }
+                }
+
+                if (unitHasExams && unitCoef > 0)
+                {
+                    allScores.Add(new AvgScore(unitSum / unitCoef, u));
+                }
+            }
+
+            if (hasAnyExam && generalCoef > 0)
+            {
+                Unit generalElement = new Unit();
+                generalElement.Name = "MOYENNE GÉNÉRALE";
+                generalElement.Coef = 1;
+
+                allScores.Add(new AvgScore(generalSum / generalCoef, generalElement));
+            }
+
+            return allScores.ToArray();
         }
     }
 }
