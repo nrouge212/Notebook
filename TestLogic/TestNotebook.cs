@@ -73,5 +73,19 @@ namespace TestLogic
             var liste = notebook.ListUnits();
             Assert.Empty(liste);
         }
+
+        [Fact]
+        public void TestModuleComputeAverage()
+        {
+            Logic.Module mod = new Logic.Module { Name = "Maths", Coef = 2 };
+            Exam e1 = new Exam { Module = mod, Note = 10, Coef = 1, IsAbsent = false };
+            Exam e2 = new Exam { Module = mod, Note = 15, Coef = 1, IsAbsent = false };
+
+            Exam[] exams = { e1, e2 };
+            AvgScore avg = mod.ComputeAverage(exams);
+
+            Assert.NotNull(avg);
+            Assert.Equal(12.5f, avg.Average);
+        }
     }
 }
