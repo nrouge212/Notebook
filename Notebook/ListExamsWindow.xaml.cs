@@ -10,8 +10,8 @@ namespace Notebook
         public ListExamsWindow(Logic.Notebook nb)
         {
             InitializeComponent();
-            notebook = nb; 
-            DrawExams(); 
+            notebook = nb;
+            DrawExams();
         }
 
         private void DrawExams()
@@ -20,6 +20,12 @@ namespace Notebook
             foreach (Exam e in notebook.ListExams())
             {
                 exams.Items.Add(e);
+            }
+
+            scores.Items.Clear();
+            foreach (AvgScore avg in notebook.ComputeScores())
+            {
+                scores.Items.Add(avg);
             }
         }
 
